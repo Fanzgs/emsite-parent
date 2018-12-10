@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"    
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="true">
+	<!-- 具体的实现bean -->
+	<bean id="demoService" class="com.unj.dubbotest.provider.impl.DemoServiceImpl" />
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="${dubbo.application.name}" />
+
+	<!-- 使用multicast广播注册中心暴露服务地址 <dubbo:registry address="multicast://224.5.6.7:1234" 
+		/> -->
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<!-- <dubbo:registry address="zookeeper://172.16.100.238:2181" /> -->
+	<dubbo:registry address="${dubbo.registry.address}" />
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20880" />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service interface="com.empire.emsite.test.facade.TestDataFacadeService"
+		ref="testDataFacadeServiceImpl" />
+	<dubbo:service interface="com.unj.dubbotest.provider.DemoService"
+		ref="demoService" />
+	<dubbo:service interface="com.empire.emsite.test.facade.TestDataMainFacadeService"
+		ref="testDataMainFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.test.facade.TestTreeFacadeService"
+		ref="testTreeFacadeServiceImpl" />
+	<dubbo:service interface="com.empire.emsite.modules.test.facade.TestFacadeService"
+		ref="testFacadeServiceImpl" />	
+		
+	<dubbo:service interface="com.empire.emsite.modules.gen.facade.GenTableFacadeService"
+		ref="genTableFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.modules.gen.facade.GenSchemeFacadeService"
+		ref="genSchemeFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.modules.gen.facade.GenTemplateFacadeService"
+		ref="genTemplateFacadeServiceImpl" />	
+	<!-- sys modules -->	
+	<dubbo:service interface="com.empire.emsite.modules.sys.facade.AreaFacadeService"
+		ref="areaFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.modules.sys.facade.DictFacadeService"
+		ref="dictFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.modules.sys.facade.LogFacadeService"
+		ref="logFacadeServiceImpl" />
+	<dubbo:service interface="com.empire.emsite.modules.sys.facade.OfficeFacadeService"
+		ref="officeFacadeServiceImpl" />
+	<dubbo:service interface="com.empire.emsite.modules.sys.facade.SystemFacadeService"
+		ref="systemFacadeServiceImpl" />	
+	<dubbo:service interface="com.empire.emsite.modules.testwx.facade.TestWxDataFacadeService"
+		ref="testWxDataFacadeServiceImpl" />		
+</beans>

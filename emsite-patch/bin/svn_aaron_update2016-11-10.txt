@@ -1,0 +1,8 @@
+commit -m "短信功能回退----------------------" D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/com/nineclient/cherry/wcc/web/page/PagesServiceController.java D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/com/nineclient/cherry/wcc/web/page/PagesMemberController.java
+    Sending        D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/com/nineclient/cherry/wcc/web/page/PagesMemberController.java
+    Sending        D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/com/nineclient/cherry/wcc/web/page/PagesServiceController.java
+    Transmitting file data ...
+    Committed revision 14441.
+commit -m "svn分析----------------" D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/verysoft/freepath/SVNPachInfo.java
+    Deleting       D:/SpringRooWorkSpace/ump20170420_chery_pc/src/main/java/verysoft/freepath/SVNPachInfo.java
+    Committed revision 14446.
